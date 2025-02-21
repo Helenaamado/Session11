@@ -1,7 +1,8 @@
+from operator import truediv
 
 import requests
 
-link= "https://www.gutenberg.org/cache/epub/1513/pg1513.txt"
+link= "https://www.gutenberg.org/cache/epub/64317/pg64317.txt"
 punctuation = ",.?1;\": -=(){}"
 result= requests.get(link)
 print(result.text)
@@ -14,8 +15,6 @@ for line in lines:
     for word in words:
         word = word.lower()
         unique_words[word] = unique_words.get(word, 0) +1
-print(unique_words["romeo"])
-print(unique_words["juliet"])
 
 freq= list(unique_words.values())
 freq.sort(reverse= True)
@@ -24,8 +23,5 @@ print(freq)
 print("the most 10 common words are: ")
 for f in freq:
     for key, value in unique_words.items():
-        if value == f:
-            print(key)
-
-
-
+      if value == f:
+          print(key)
